@@ -1,0 +1,16 @@
+doctype html
+html(lang="en")
+head
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+body
+  h1 Add numbers for you
+  form(action='/getData', methon='post')
+    label Enter a number: 
+    br
+    input(type='text', name='number')
+    br
+    button(type='submit') submit
+  br
+  a(href="/myName") My name
