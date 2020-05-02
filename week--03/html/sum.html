@@ -5,25 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function(){
-            if(xhr.readyState === 4){
-                if(xhr.status === 200){
-                    document.getElementById('result').innerHTML = xhr.responseText;
-                }
+
+        function ajax (){
+            var enterNumber = document.getElementById("input");
+            var number = enterNumber.value;
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', '/getData?number='+number); 
+            xhr.onload = function(){
+                document.getElementById('result').innerHTML = xhr.responseText;
             }
+            xhr.send(); 
         }
-        xhr.open('GET', '/getData?number=10');
-        xhr.send();
+        
     </script>
 </head>
 <body>
-    <p id="result">hi</p>
     <h1>Add numbers for you</h1>
-    <form action="/getData" methon="post">
-        <label>Enter a number: </label></br>
-            <input type="text" name="number"></br>
-        <button type="submit">submit</button>
-    </form>
+    <P>Enter a number</P>
+    <input type="text" id="input"></br>
+    <button type="submit" onclick="ajax()">submit</button>
+    <p>The result is: </p>
+    <p id="result"></p>
 </body>
 </html>
