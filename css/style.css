@@ -1,0 +1,150 @@
+*{
+    box-sizing: border-box;
+}
+/* header */
+header{
+    width: 100%;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 40px;
+    background-color: #1B4F72;
+}
+nav .text{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    list-style: none;
+    padding: 20px;
+    background-color: whitesmoke;
+    height: 100vh;
+}
+nav .text a{
+    text-decoration: none;
+    color: #1B4F72;
+}
+nav .text li{
+    padding: 20px 50px;
+    text-align: center;
+}
+nav .text .button{
+    position: fixed;
+    top: 10px;
+    right: 15px;
+}
+.figure{
+    width: 30px;
+    margin: auto 0;
+}
+.logo{
+    width: 40px;
+}
+img{
+    width: 100%;
+}
+.banner{
+    background-color: #D4E6F1;
+}
+.banner img{
+    border-radius: 50%;
+    width: 30%;
+    padding: 20px 0 10px;
+}
+.banner{
+    text-align: center;
+    padding:5px 15px 20px;
+}
+.banner h2,
+.banner p{
+  color: #1B4F72;  
+  font-weight: bold;
+}
+.banner p{
+    font-size: 1.1em;
+    padding:0 10px 20;
+    padding: 0 15px;
+}
+/* SECTION */
+
+section{
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    text-align: center;
+}
+section h3{
+    color: #1B4F72;
+    padding: 20px 0 10px;
+}
+section .items{
+    align-items: stretch;
+}
+section .item{
+    background-color:#B7950B;
+    padding: 20px;
+    margin: 0 0 20px;
+    color: white;
+    letter-spacing: 0.1rem;
+}
+
+/* FOOTER */
+
+footer{
+    background-color: #2C3E50;
+    color: #F2F4F4;
+    width: 200px;
+    line-height: 2.5;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* second-section */
+.second-section{
+    display: none;
+}
+
+/* media qu */
+@media (min-width: 500px){
+    section .items{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    section .item{
+        width: 48%;
+    }
+}
+
+@media (min-width: 800px){
+    nav .figure{
+        display: none;
+    }
+    nav .text{
+        display: flex;
+        position: absolute;
+        background-color: #1B4F72;
+        height: 59px;
+        list-style: none;
+    }
+    nav .text li{
+        padding: 0 30px;
+        margin: 0;
+        align-items: center;
+    }
+    nav .text li a{
+        padding: 0;
+        text-decoration: none;
+        color: #F2F4F4;
+    }
+    nav .text .button{
+        display: none;
+    }
+}
+@media (min-width: 1200px){
+    section{
+        max-width: 1200px;
+    }
+}

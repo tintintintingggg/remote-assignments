@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="React-doc/react.js"></script>
+    <script src="React-doc/react-dom.js"></script>
+    <script src="React-doc/babel.min.js"></script>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+    
+        class App extends React.Component{
+
+            state = {
+                welcomeMessage: true,
+                showMenu: false,
+                showMoreContent: false
+            }
+
+            changeWelcomeMessage = () => {
+                this.setState({
+                    welcomeMessage: !this.state.welcomeMessage
+                });
+            }
+
+            handleToShowMenu = () => {
+                this.setState({
+                    showMenu: !this.state.showMenu
+                });
+            }
+
+            handleToShowMoreContent = () => {
+                this.setState({
+                    showMoreContent: !this.state.showMoreContent
+                });
+            };
+
+            render(){
+                return (
+                    <div id="MyApp">
+                        <Header 
+                            isWelcomeMessage={this.state.welcomeMessage}
+                            changeWelcomeMessage={this.changeWelcomeMessage}
+                            showMenu={this.state.showMenu}
+                            handleToShowMenu={this.handleToShowMenu}    
+                         />
+                        <Section />
+                        <Footer
+                            showMoreContent={this.state.showMoreContent}
+                            handleToShowMoreContent={this.handleToShowMoreContent}
+                         />
+                    </div>
+                );
+            }
+        }
+
+        const Header = (props) => {
+            return (
+                <header>
+                    <nav>
+                        <div className="logo">
+                        <img src="images/logo.png" alt="logo" title="Like!" /> 
+                        </div>
+                        <div className="list text"
+                            showMenu={props.showMenu}
+                            style={props.showMenu?{display: 'block'}:{display: 'none'}} >
+                            <li>
+                                <a href="">About</a>
+                            </li>
+                            <li>
+                                <a href="">Article</a>
+                            </li>
+                            <li>
+                                <a href="">Donation</a>
+                            </li>
+                            <li>
+                                <a href="">Contact</a>
+                            </li>
+                            <div className="button"
+                                onClick={props.handleToShowMenu} ><a href="#">X</a></div>
+                        </div>
+                        <div className="list figure"
+                            showMenu={props.showMenu} >
+                            <a href="#"><img src="images/menu.png" alt="menu" title="menu" onClick={props.handleToShowMenu} style={props.showMenu?{display: 'none'}:{display: 'block'}} /></a>
+                        </div>
+                    </nav>
+                    <div className="banner" 
+                        onClick={props.changeWelcomeMessage}
+                        isWelcomeMessage={props.isWelcomeMessage} >
+                        <img src="images/banner.jpg" alt="doggy" title="doggy" />
+                        <h2>{props.isWelcomeMessage?'Have a Good Time!':'Welcome to Our Playground!'}</h2>
+                        <p>Lots of information about traveling is available here.</p>
+                    </div>
+                </header>
+            );
+        };
+        const Section =() => {
+            return (
+                <section>
+                    <div className="container">
+                        <h3>
+                            More details about us
+                        </h3>
+                        <div className="items">
+                            <div className="item">
+                                放鬆心情小旅行--<br />
+                                山林走走筆記，身心舒暢的最棒路徑，享受清新的山間芬芳與野味，關掉手機、當一回真正的旅人，與自然  共舞，更多的森林之旅就在這裡！
+                            </div>
+                            <div className="item">
+                                語浪遊記--<br />
+                                來自大海的孩子：鹹鹹的海風是你的香水、打溼的沙子是你的印記，讓我們一起洗淨繁事的鉛華，共游在浮  沈的舒爽吧！飲一口海水的鹹，乾杯慶祝下一次的相聚，更多海灘之行就在這裡！
+                            </div>
+                            <div className="item">
+                                語浪遊記--<br />
+                                來自大海的孩子：鹹鹹的海風是你的香水、打溼的沙子是你的印記，讓我們一起洗淨繁事的鉛華，共游在浮  沈的舒爽吧！飲一口海水的鹹，乾杯慶祝下一次的相聚，更多海灘之行就在這裡！
+                            </div>
+                            <div className="item">
+                                放鬆心情小旅行：<br />
+                                山林走走筆記，身心舒暢的最棒路徑，享受清新的山間芬芳與野味，關掉手機、當一回真正的旅人，與自然  共舞，更多的森林之旅就在這裡！
+                            </div>
+                        </div>
+                    </div>
+                </section> 
+            );       
+        };
+        const Footer = (props) => {
+            return (
+            <div>
+                <footer onClick={props.handleToShowMoreContent}>
+                    {props.showMoreContent?'Click to Close':'Click to See More'}
+                </footer>
+                <section className="second-section" showMenu={props.showMoreContent} style={props.showMoreContent?{display: 'flex'}:{display: 'none'}}>
+                    <div className="container">
+                        <div className="items">
+                            <div className="item">
+                                放鬆心情小旅行--<br />
+                                山林走走筆記，身心舒暢的最棒路      徑，享受清新的山間芬芳與野味，關    掉手機、當一回真正的旅人，與自然      共舞，更多的森林之旅就在這裡！
+                            </div>
+                            <div className="item">
+                                語浪遊記--<br />
+                                來自大海的孩子：鹹鹹的海風是你的        香水、打溼的沙子是你的印記，讓我        們一起洗淨繁事的鉛華，共游在浮沈        的舒爽吧！飲一口海水的鹹，乾杯慶        祝下一次的相聚，更多海灘之行就在        這裡！
+                            </div>
+                            <div className="item">
+                                語浪遊記--<br />
+                                來自大海的孩子：鹹鹹的海風是你的        香水、打溼的沙子是你的印記，讓我        們一起洗淨繁事的鉛華，共游在浮沈        的舒爽吧！飲一口海水的鹹，乾杯慶        祝下一次的相聚，更多海灘之行就在        這裡！
+                            </div>
+                            <div className="item">
+                                放鬆心情小旅行：<br />
+                                山林走走筆記，身心舒暢的最棒路      徑，享受清新的山間芬芳與野味，關    掉手機、當一回真正的旅人，與自然      共舞，更多的森林之旅就在這裡！
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            );
+        };
+        
+
+        
+
+
+        ReactDOM.render(
+            <App />,
+            document.getElementById('root')
+        )
+    </script>
+
+
+</body>
+</html>
